@@ -1,0 +1,20 @@
+# Default settings for fitscmp_gui.py
+normalization: none          # none | mean | median | max | sum
+window: true                 # apply a 2D Hann window before the FFT
+radial_bins: 64              # annuli between 0 and 0.5 cycles/pixel
+clip_percentiles: [1.0, 99.0]
+cmap: viridis
+diff_cmap: RdBu_r
+nan_mode: interp             # interp | mask: handling of pixels not valid in both images (FFT only)
+mask_taper: 16               # cosine apodization width [pix] around masked regions (0 = off)
+interp_sigma: 1.0            # Gaussian kernel sigma [pix] for inpainting (interp mode)
+registration_upsample: 100   # sub-pixel precision of the shift estimate: 1/upsample pixel
+spot_method: iso             # iso (ISO 11146) | gauss (Gaussian fit) | rainer (Rainer p10, Acquisition Manager)
+pixel_scale: null            # detector pixel size [um/pix] for the 'Units um' option (null = pixels only)
+dark_frame: null             # master dark FITS loaded at start (first 2D image), subtracted from all images
+hot_pixel_nsigma: 5          # detection threshold of the hot-pixel filter [local noise]
+saturation_level: null       # pixel value counted as saturated, e.g. 4095 for 12-bit data (null = not checked)
+export_format: csv           # csv | parquet (Brotli-compressed, needs pandas + pyarrow)
+batch_workers: auto          # processes for the batch: auto = min(4, CPUs - 1), or an integer (1 = no pool)
+expand_cubes: true           # treat each plane of a 3D HDU as a separate 2D image
+start_dir: "."

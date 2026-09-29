@@ -1,0 +1,11 @@
+# Tkinter is also required; on some Linux distributions install it
+# via the system package manager (e.g. python3-tk).
+numpy
+astropy
+scipy
+scikit-image
+matplotlib>=3.5
+pyyaml
+# optional, for export_format: parquet
+# pandas
+# pyarrow
